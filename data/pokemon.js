@@ -15,7 +15,7 @@
 let pokemon = [
 {
         "nom": "Passerouge",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Normal",
         "type1": "Normal",
         "type2": "Feu",
@@ -29,7 +29,7 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Braisillon",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Normal",
         "type1": "Feu",
         "type2": "Vol",
@@ -43,7 +43,7 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Flambusard",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Normal",
         "type1": "Feu",
         "type2": "Vol",
@@ -57,7 +57,7 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Léviator",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Normal",
         "type1": "Eau",
         "type2": "",
@@ -71,10 +71,10 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Vivaldaim",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Normal",
         "type1": "Normal",
-        "type2": "plante",
+        "type2": "Plante",
         "atk_sign_nom": "",
         "atk_sign_type": "",
         "atk_sign_description": "",
@@ -85,7 +85,7 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Vivaldaim",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Ete",
         "type1": "Normal",
         "type2": "Plante",
@@ -99,7 +99,7 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Vivaldaim",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Automne",
         "type1": "Normal",
         "type2": "Plante",
@@ -113,7 +113,7 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Vivaldaim",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Hiver",
         "type1": "Normal",
         "type2": "Plante",
@@ -127,7 +127,7 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Haydaim",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Normal",
         "type1": "Normal",
         "type2": "Plante",
@@ -141,7 +141,7 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Haydaim",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Ete",
         "type1": "Normal",
         "type2": "Plante",
@@ -155,7 +155,7 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Haydaim",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Automne",
         "type1": "Normal",
         "type2": "Plante",
@@ -169,7 +169,7 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Haydaim",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Hiver",
         "type1": "Normal",
         "type2": "Plante",
@@ -239,7 +239,7 @@ let pokemon = [
         "dangerosite": "Très élevée"
 }, {
         "nom": "Riolu",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Normal",
         "type1": "Acier",
         "type2": "Combat",
@@ -253,7 +253,7 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Lucario",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Normal",
         "type1": "Acier",
         "type2": "Combat",
@@ -267,7 +267,7 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Flabébé",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Normal",
         "type1": "Fée",
         "type2": "",
@@ -281,7 +281,7 @@ let pokemon = [
         "dangerosite": "Elevée"
 }, {
         "nom": "Floette",
-        "epoque": "All",
+        "epoque": "Moderne",
         "forme": "Normal",
         "type1": "Fée",
         "type2": "",
@@ -294,8 +294,8 @@ let pokemon = [
         "evolution_stade": 1,
         "dangerosite": "Elevée"
 }, {
-        "nom": "Florgès",
-        "epoque": "All",
+        "nom": "Florges",
+        "epoque": "Moderne",
         "forme": "Normal",
         "type1": "Fée",
         "type2": "",
