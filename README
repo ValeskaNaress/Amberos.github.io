@@ -1,0 +1,31 @@
+
+######################
+### Lancer le site ###
+######################
+
+Pour lancer le site, il suffit d'ouvrir "main.html" dans un navigateur web.
+Importez ensuite les données avec le bouton dédié pour voir apparaitre les pokemons
+
+#########################################################
+### Pour changer le nombre de cartes sur chaque ligne ###
+#########################################################
+
+Dans le dossier style, trouvez le fichier se terminant en .css et l'ouvrir 
+    (n'importe quel éditeur de texte fera l'affaire, Visual Studio Code est l'idéal)
+
+Entre les lignes 60 et 100 environ se trouvent différent intervalles de tailles d'écran
+
+Changer la ligne décrite pour chacun suffit à changer le nombre de cartes
+    ex : grid-template-columns: repeat(3, 33%); => grid-template-columns: repeat(4, 24.5%);
+    Permet de passer de 3 lignes à 4 lignes
+
+### Créer des pokemons ###
+##########################
+
+Ouvrir le fichier pokemons.js dans le dossier data, et rajouter une ligne sur le même exemple que précédents
+- si valeur nulle (pas d'attaque signature, pas de deuxième type...") mettre ""
+- "Moderne" et "Normal" sont des valeurs d'époque et forme par défaut
+
+Pour rajouter une image, nommez là Nom_Forme_Epoque.wepb (Nom_Forme.wepb si elle a pas d'époque, Nom.wepb si elle a pas de forme ou époque, etc..)
+Les images se situent dans le dossier images/pokemons
+Elles sont associées automatiquement aux pokemnos enregistrés grâce à leur nom
