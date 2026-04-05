@@ -1,6 +1,5 @@
 const liste = document.querySelector("#liste");
 const liste_petite = document.querySelector("#liste_petite");
-let map;
 
 /* ajouter le bouton concerné */
 const btn_import_pk = document.querySelector("#bouton_import_pokemon");
@@ -215,9 +214,9 @@ function initialiser_carte_lune(infos) {
 
 /* MAP */
 function chargerMap() {
-    if (map) {
-        map.remove();
-        map = null;
+    if (window.map) {
+        window.map.remove();
+        window.map = null;
     }
     
     const mapDiv = document.getElementById('map');
