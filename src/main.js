@@ -222,10 +222,10 @@ function chargerMap() {
     const mapDiv = document.getElementById('map');
     mapDiv.style.display = 'block';
     const w = 1280, h = 768;
-    const map = L.map('map', { crs: L.CRS.Simple, minZoom: 0, maxZoom: 2 });
+    window.map = L.map('map', { crs: L.CRS.Simple, minZoom: 0, maxZoom: 2 });
     const bounds = [[0,0],[h,w]];
-    map.setMaxBounds(bounds);
-    map.fitBounds(bounds);
+    window.map.setMaxBounds(bounds);
+    window.map.fitBounds(bounds);
     const cols = 5;
     const rows = 3;
     const tileW = w / cols;
