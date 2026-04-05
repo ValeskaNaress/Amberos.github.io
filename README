@@ -29,3 +29,15 @@ Ouvrir le fichier pokemons.js dans le dossier data, et rajouter une ligne sur le
 Pour rajouter une image, nommez là Nom_Forme_Epoque.wepb (Nom_Forme.wepb si elle a pas d'époque, Nom.wepb si elle a pas de forme ou époque, etc..)
 Les images se situent dans le dossier images/pokemons
 Elles sont associées automatiquement aux pokemnos enregistrés grâce à leur nom
+
+### Ajouter une nouvelle page ("exemple")
+1) Créer data/exemple.js
+2) Créer data/class_exemple
+3) Modifier index.html pour importer cex deux fichiers
+4) Modificer index/html pour créer un nouveau bouton
+5) Modifer src/main.js pour
+    - importer les boutons
+    - ajouter des events sur les boutons
+    - reset les boutons
+    - ajouter les scripts d'imports de données et de modification de l'interface
+    - modifier stye/pokemon_amberos.css pour ajouter "Exemple"

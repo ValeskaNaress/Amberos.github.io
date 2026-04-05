@@ -6,23 +6,35 @@
     <meta name="viewport" content="width=device-width" />
     <title>Amberos</title>
     <link rel="stylesheet" href="style/pokemon_amberos.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
-    <div class="import">
-        <input type="button" id="bouton_import_pokemon" name="bouton_import_pokemon" value="Afficher les pokemons">
-        <input type="button" id="bouton_import_dresseur" name="bouton_import_dresseur" value="Afficher les dresseurs">
+    <div class="header">
+        <div class="title">
+            <h1>Amberos</h1>
+        </div>
+        <div class="import">
+            <input type="button" class="button_import" id="bouton_import_pokemon" name="bouton_import_pokemon" value="Afficher les pokemons">
+            <input type="button" class="button_import" id="bouton_import_dresseur" name="bouton_import_dresseur" value="Afficher les dresseurs">
+            <input type="button" class="button_import" id="bouton_import_lune" name="bouton_import_lune" value="Afficher les lunes">
+            <input type="button" class="button_import" id="bouton_import_map" name="bouton_import_map" value="Afficher la map">
+        </div>
     </div>
 
-    <div id="infos" class="infos"></div>
-
     <div id="liste" class="liste"></div>
+    <div id="liste_petite" class="liste_petite"></div>
+    <div id="map"></div>
    
     <script src="data/dresseur.js"></script>
     <script src="data/pokemon.js"></script>
+    <script src="data/lune.js"></script>
     <script src="data/class_dresseur.js"></script>
     <script src="data/class_pokemon.js"></script>
+    <script src="data/class_lune.js"></script>
     <script src="data/duo.js"></script>
     <script src="data/type_effectiveness.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="data/map_icons.js"></script>
     <script src="src/main.js"></script>
 
 </body>

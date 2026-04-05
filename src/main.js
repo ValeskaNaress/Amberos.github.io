@@ -1,25 +1,36 @@
 const liste = document.querySelector("#liste");
+const liste_petite = document.querySelector("#liste_petite");
+
+
+/* ajouter le bouton concerné */
 const btn_import_pk = document.querySelector("#bouton_import_pokemon");
 const btn_import_dr = document.querySelector("#bouton_import_dresseur");
+const btn_import_ln = document.querySelector("#bouton_import_lune");
+const btn_import_map = document.querySelector("#bouton_import_map");
 
 btn_import_pk.addEventListener("click", import_datas_pokemon);
 btn_import_dr.addEventListener("click", import_datas_dresseur);
+btn_import_ln.addEventListener("click", import_datas_lune);
+btn_import_map.addEventListener("click", chargerMap);
 
-function import_datas_pokemon(){
-    if (btn_import_pk.value == "Afficher les pokemons") {
-        liste.innerHTML = "";
-        Pokemon.import_pokemons();
-        btn_import_pk.value = "Pokemons affichée !";
-        btn_import_dr.value = "Afficher les dresseurs";
-    }
+function resetAll() {
+    btn_import_dr.value = "Afficher les dresseurs";
+    btn_import_pk.value = "Afficher les pokemons";
+    btn_import_ln.value = "Afficher les lunes";
+    btn_import_map.value = "Afficher la map";
+    liste.innerHTML = "";
+    liste_petite.innerHTML = "";
+    liste.classList = "liste";
+    liste_petite.classList = "liste_petite";
 }
 
-function import_datas_dresseur(){
-    if (btn_import_dr.value == "Afficher les dresseurs") {
-        liste.innerHTML = "";
-        Dresseur.import_dresseurs();
-        btn_import_dr.value = "Dresseurs affichés !";
-        btn_import_pk.value = "Afficher les pokemons";
+/* POKEMONS */
+function import_datas_pokemon(){
+    if (btn_import_pk.value == "Afficher les pokemons") {
+        resetAll();
+        liste.classList += " card";
+        Pokemon.import_pokemons();
+        btn_import_pk.value = "Pokemons affichée !";
     }
 }
 
@@ -27,13 +38,6 @@ function preparer_carte_pokemon(val) {
     var str = "";
     var infos = Pokemon.all_pokemons[val].getAttributes();
     str += initialiser_carte_pokemon(infos);
-    liste.innerHTML += str;
-}
-
-function preparer_carte_dresseur(val) {
-    var str = "";
-    var infos = Dresseur.all_dresseurs[val].getAttributes();
-    str += initialiser_carte_dresseur(infos);
     liste.innerHTML += str;
 }
 
@@ -96,9 +100,26 @@ function initialiser_carte_pokemon(infos) {
     return str;
 }
 
+/* DRESSEURS */
+function import_datas_dresseur(){
+    if (btn_import_dr.value == "Afficher les dresseurs") {
+        resetAll();
+        liste.classList += " card";
+        Dresseur.import_dresseurs();
+        btn_import_dr.value = "Dresseurs affichés !";
+    }
+}
+
+function preparer_carte_dresseur(val) {
+    var str = "";
+    var infos = Dresseur.all_dresseurs[val].getAttributes();
+    str += initialiser_carte_dresseur(infos);
+    liste.innerHTML += str;
+}
+
 function initialiser_carte_dresseur(infos) {
     var str = "";
-    str += "<div id='carte_type' class='Dresseur carte_grid zone zone_large'>";
+    str += "<div id='carte_type' class='Dresseur carte_dresseur_grid zone zone_large'>";
         str += "<div id='dresseur_img' class='zone_dresseur Blanc carte_center self_center'>";
             str += "<img class='img_dresseur' src='images/dresseurs/" + infos.image + "'>";
         str += "</div>";
@@ -148,3 +169,95 @@ function initialiser_carte_dresseur(infos) {
     str += "</div>";
     return str;
 }
+
+/* LUNES */
+function import_datas_lune(){
+    if (btn_import_ln.value == "Afficher les lunes") {
+        resetAll();
+        liste_petite.classList += " card";
+        Lune.import_lunes();
+        btn_import_ln.value = "Lunes affichés !";
+    }
+}
+
+function preparer_carte_lune(val) {
+    var str = "";
+    var infos = Lune.all_lunes[val].getAttributes();
+    str += initialiser_carte_lune(infos);
+    liste_petite.innerHTML += str;
+}
+
+function initialiser_carte_lune(infos) {
+    var str = "";
+    str += "<div id='carte_type' class='Lune zone zone_large carte_column'>";
+        str += "<div class='carte_row'>";
+            str += "<div id='lune_img' class='zone_lune carte_center self_center'>";
+                str += "<img class='img_lune' src='images/lunes/" + infos.image + "'>";
+            str += "</div>";
+
+            str += "<div id='lune_entete' class='zone_lune carte_left'>";
+                str += "<h1>" + infos.nom + "</h1>";
+            str += "</div>";
+        str += "</div>";
+        
+        str += "<div id='lune_description' class='zone_lune Blanc carte_column carte_left margin'>";
+            str += "<h2>Qualités :&nbsp</h2>";
+            str += "<p>" + infos.qualites + "</p>";
+        str += "</div>";
+
+        str += "<div  id='lune_bonus' class='zone_lune Blanc carte_column carte_left'>";
+            str += "<h2>Rites :&nbsp</h2>";
+            str += "<p>" + infos.rites + "</p>";
+        str += "</div>";
+    str += "</div>";
+    return str;
+}
+
+/* MAP */
+function chargerMap() {
+    const mapDiv = document.getElementById('map');
+    mapDiv.style.display = 'block';
+    const w = 1280, h = 768;
+    const map = L.map('map', { crs: L.CRS.Simple, minZoom: 0, maxZoom: 2 });
+    const bounds = [[0,0],[h,w]];
+    map.setMaxBounds(bounds);
+    map.fitBounds(bounds);
+    const cols = 5;
+    const rows = 3;
+    const tileW = w / cols;
+    const tileH = h / rows;
+
+    for(let x=0; x<cols; x++){
+        for(let y=0; y<rows; y++){
+            const northWest = [y*tileH, x*tileW];
+            const southEast = [(y+1)*tileH, (x+1)*tileW];
+            const imgBounds = [northWest, southEast];
+            L.imageOverlay(`images/map/0/${x}/${y}.png`, imgBounds).addTo(map);
+        }
+    }
+
+    // Groupes de markers
+    var villesGroup = L.layerGroup();
+    var monstresGroup = L.layerGroup();
+
+    // Ajout de markers aux groupes
+    var v1 = L.marker([700,500], {icon: city}).bindPopup("Capitale");
+    var v2 = L.marker([500,600], {icon: cityPort}).bindPopup("Village");
+    villesGroup.addLayer(v1).addLayer(v2);
+
+    var m1 = L.marker([300,200], {icon: cityLizard}).bindPopup("Grotte des trolls");
+    monstresGroup.addLayer(m1);
+
+    // Ajouter certains par défaut
+    villesGroup.addTo(map);
+
+    // Controls de calques
+    var overlays = {
+        "Villes": villesGroup,
+        "Zones dangereuses": monstresGroup
+    };
+
+    L.control.layers(null, overlays).addTo(map);
+}
+
+
