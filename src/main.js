@@ -214,18 +214,13 @@ function initialiser_carte_lune(infos) {
 
 /* MAP */
 function chargerMap() {
-    if (window.map) {
-        window.map.remove();
-        window.map = null;
-    }
-    
     const mapDiv = document.getElementById('map');
     mapDiv.style.display = 'block';
     const w = 1280, h = 768;
-    window.map = L.map('map', { crs: L.CRS.Simple, minZoom: 0, maxZoom: 2 });
+    map = L.map('map', { crs: L.CRS.Simple, minZoom: 0, maxZoom: 2 });
     const bounds = [[0,0],[h,w]];
-    window.map.setMaxBounds(bounds);
-    window.map.fitBounds(bounds);
+    map.setMaxBounds(bounds);
+    map.fitBounds(bounds);
     const cols = 5;
     const rows = 3;
     const tileW = w / cols;
