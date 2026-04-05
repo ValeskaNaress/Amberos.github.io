@@ -1,6 +1,6 @@
 const liste = document.querySelector("#liste");
 const liste_petite = document.querySelector("#liste_petite");
-
+let map;
 
 /* ajouter le bouton concerné */
 const btn_import_pk = document.querySelector("#bouton_import_pokemon");
