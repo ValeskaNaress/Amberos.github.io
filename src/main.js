@@ -215,10 +215,14 @@ function initialiser_carte_lune(infos) {
 
 /* MAP */
 function chargerMap() {
+    if (map) {
+        map.remove();
+        map = null;
+    }
+    
     const mapDiv = document.getElementById('map');
     mapDiv.style.display = 'block';
     const w = 1280, h = 768;
-    if (map) return; // la carte existe déjà, ne rien faire
     const map = L.map('map', { crs: L.CRS.Simple, minZoom: 0, maxZoom: 2 });
     const bounds = [[0,0],[h,w]];
     map.setMaxBounds(bounds);
