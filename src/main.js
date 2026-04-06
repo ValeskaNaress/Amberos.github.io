@@ -241,6 +241,7 @@ function afficherMap() {
     mapDiv.classList.remove('hidden-map');
     btn_import_map.value = "Map affichée !";
     window.map.invalidateSize(true);
+    console.log("ok");
 }
 
 function initialiserMap() {
@@ -286,5 +287,7 @@ function initialiserMap() {
         "Zones dangereuses": monstresGroup
     };
     L.control.layers(null, overlays).addTo(window.map);
+
+    effacerMap();
 }
 
