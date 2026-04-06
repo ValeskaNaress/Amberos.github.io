@@ -226,10 +226,16 @@ function initialiser_carte_lune(infos) {
 function import_datas_map() {
     if (btn_import_map.value == "Afficher la map") {
         resetAll();
-        if (!(window.map instanceof L.Map)) {
-            mapDiv.style.display = 'block'; // afficher avant d'initialiser
-            initialiser_map();
-        } else {
+        if (window.map instanceof L.Map) {
+            mapDiv.style.display = 'block';  // réaffiche le div
+            window.map.invalidateSize();      // recalcul de la taille du container
+            window.map.eachLayer(layer => {
+                if (layer instanceof L.ImageOverlay) {
+                    layer.setBounds(layer.getBounds()); // force le redraw
+                }
+            });
+        }
+        else {
             mapDiv.style.display = 'block'; // réaffiche le div
             window.map.invalidateSize();     // recalcul de la taille
         }
