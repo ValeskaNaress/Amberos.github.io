@@ -1,7 +1,6 @@
 const liste = document.querySelector("#liste");
 const liste_petite = document.querySelector("#liste_petite");
 const mapDiv = document.getElementById('map');
-mapDiv.style.display = "none";
 
 initialiserMap();
 
