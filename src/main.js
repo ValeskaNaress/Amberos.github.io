@@ -227,7 +227,7 @@ function initialiser_carte_lune(infos) {
 
 /* MAP */
 function import_datas_map() {
-    if (btn_import_ln.value == "Afficher la Map") {
+    if (btn_import_ln.value == "Afficher la map") {
         resetAll();
         afficherMap();
         btn_import_map.value = "Map affichée !";
@@ -236,7 +236,6 @@ function import_datas_map() {
 
 function afficherMap() {
     mapDiv.classList.remove('hidden-map');
-    btn_import_map.value = "Map affichée !";
     window.map.invalidateSize(true);
     console.log("ok");
 }
