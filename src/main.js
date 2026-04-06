@@ -226,6 +226,7 @@ function initialiser_carte_lune(infos) {
 
 /* MAP */
 function import_datas_map() {
+    console.log("dak");
     if (btn_import_ln.value == "Afficher la map") {
         resetAll();
         afficherMap();
