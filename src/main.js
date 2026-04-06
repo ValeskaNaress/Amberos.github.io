@@ -28,7 +28,7 @@ function resetAll() {
 }
 
 function nettoyerCarte() {
-    mapDiv.classList.add('hidden-map');
+    effacerMap();
     if (window.map instanceof L.Map) {
         window.map.setView([0, 0], 0);
     }
@@ -111,7 +111,7 @@ function initialiser_carte_pokemon(infos) {
 }
 
 /* DRESSEURS */
-function import_datas_dresseur(){
+function import_datas_dresseur() {
     if (btn_import_dr.value == "Afficher les dresseurs") {
         resetAll();
         liste.classList += " card";
@@ -225,16 +225,22 @@ function initialiser_carte_lune(infos) {
 
 /* MAP */
 function import_datas_map() {
-    resetAll();
-    const isVisible = !mapDiv.classList.contains('hidden-map');
-    if (isVisible) {
-        mapDiv.classList.add('hidden-map');  // cache la map
-        btn_import_map.value = "Afficher la map";
-    } else {
-        mapDiv.classList.remove('hidden-map');  // réaffiche la map
+    if (btn_import_ln.value == "Afficher les lunes") {
+        resetAll();
+        afficherMap();
         btn_import_map.value = "Map affichée !";
-        window.map.invalidateSize(true);        // force Leaflet à recalculer les tuiles
     }
+}
+
+function effacerMap() {
+    mapDiv.classList.add('hidden-map');
+    btn_import_map.value = "Afficher la map";
+}
+
+function afficherMap() {
+    mapDiv.classList.remove('hidden-map');
+    btn_import_map.value = "Map affichée !";
+    window.map.invalidateSize(true);
 }
 
 function initialiserMap() {
