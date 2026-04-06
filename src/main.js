@@ -26,11 +26,11 @@ function resetAll() {
 }
 
 function nettoyerCarte() {
-    if (window.map instanceof L.Map) {
+     if (window.map instanceof L.Map) {
         window.map.eachLayer(layer => window.map.removeLayer(layer));
-        window.map.setView([0,0], 0);
-        mapDiv.style.display = "none";
+        window.map.setView([0, 0], 0);
     }
+    mapDiv.style.display = "none";
 }
 
 /* POKEMONS */
@@ -224,21 +224,26 @@ function initialiser_carte_lune(infos) {
 
 /* MAP */
 function import_datas_map() {
-    if (btn_import_map.value == "Afficher la map") {
+    if (btn_import_map.value === "Afficher la map") {
         resetAll();
-        if (window.map instanceof L.Map) {
-            mapDiv.style.display = 'block';  // réaffiche le div
-            window.map.invalidateSize();      // recalcul de la taille du container
+
+        mapDiv.style.display = 'block'; 
+
+        if (!(window.map instanceof L.Map)) {
+            initialiser_map();
+        } else {
+            window.map.invalidateSize();
+
             window.map.eachLayer(layer => {
                 if (layer instanceof L.ImageOverlay) {
-                    layer.setBounds(layer.getBounds()); // force le redraw
+                    const bounds = layer.getBounds();
+                    const url = layer._url;
+                    layer.remove();
+                    L.imageOverlay(url, bounds).addTo(window.map);
                 }
             });
         }
-        else {
-            mapDiv.style.display = 'block'; // réaffiche le div
-            window.map.invalidateSize();     // recalcul de la taille
-        }
+
         btn_import_map.value = "Map affichée !";
     }
 }
@@ -259,8 +264,8 @@ function initialiser_map() {
     window.map.setMaxBounds(bounds);
     window.map.fitBounds(bounds);
 
-    for(let x=0; x<cols; x++){
-        for(let y=0; y<rows; y++){
+    for (let x = 0; x < cols; x++) {
+        for (let y = 0; y < rows; y++) {
             const northWest = [y*tileH, x*tileW];
             const southEast = [(y+1)*tileH, (x+1)*tileW];
             const imgBounds = [northWest, southEast];
@@ -268,28 +273,22 @@ function initialiser_map() {
         }
     }
 
-    // Groupes de markers
-    var villesGroup = L.layerGroup();
-    var monstresGroup = L.layerGroup();
+    const villesGroup = L.layerGroup();
+    const monstresGroup = L.layerGroup();
 
-    // Ajout de markers aux groupes
-    var v1 = L.marker([700,500], {icon: city}).bindPopup("Capitale");
-    var v2 = L.marker([500,600], {icon: cityPort}).bindPopup("Village");
+    const v1 = L.marker([700,500], {icon: city}).bindPopup("Capitale");
+    const v2 = L.marker([500,600], {icon: cityPort}).bindPopup("Village");
     villesGroup.addLayer(v1).addLayer(v2);
 
-    var m1 = L.marker([300,200], {icon: cityLizard}).bindPopup("Grotte des trolls");
+    const m1 = L.marker([300,200], {icon: cityLizard}).bindPopup("Grotte des trolls");
     monstresGroup.addLayer(m1);
 
-    // Ajouter certains par défaut
     villesGroup.addTo(window.map);
 
-    // Controls de calques
-    var overlays = {
+    const overlays = {
         "Villes": villesGroup,
         "Zones dangereuses": monstresGroup
     };
-
     L.control.layers(null, overlays).addTo(window.map);
 }
-
 
