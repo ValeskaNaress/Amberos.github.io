@@ -90,7 +90,6 @@ class Dresseur {
 				list.push(duo[val].pokemon_titre);
 			}
 		}
-        console.log(list);
 		return list;
 	}
 }
