@@ -227,21 +227,15 @@ function import_datas_map() {
     if (btn_import_map.value === "Afficher la map") {
         resetAll();
 
-        mapDiv.style.display = 'block'; 
+        // rendre le div visible AVANT de créer la map
+        mapDiv.style.display = 'block';
 
         if (!(window.map instanceof L.Map)) {
+            // map inexistante → créer la map et les overlays maintenant que le div est visible
             initialiser_map();
         } else {
+            // map existante → juste recalculer la taille
             window.map.invalidateSize();
-
-            window.map.eachLayer(layer => {
-                if (layer instanceof L.ImageOverlay) {
-                    const bounds = layer.getBounds();
-                    const url = layer._url;
-                    layer.remove();
-                    L.imageOverlay(url, bounds).addTo(window.map);
-                }
-            });
         }
 
         btn_import_map.value = "Map affichée !";
@@ -255,17 +249,17 @@ function initialiser_map() {
         minZoom: 0, 
         maxZoom: 2
     });
-    const bounds = [[0,0],[h,w]];
-    const cols = 5;
-    const rows = 3;
-    const tileW = w / cols;
-    const tileH = h / rows;
 
+    const bounds = [[0,0],[h,w]];
     window.map.setMaxBounds(bounds);
     window.map.fitBounds(bounds);
 
-    for (let x = 0; x < cols; x++) {
-        for (let y = 0; y < rows; y++) {
+    const cols = 5, rows = 3;
+    const tileW = w / cols, tileH = h / rows;
+
+    // ajouter les tuiles uniquement après que le div est visible
+    for (let x=0; x<cols; x++){
+        for (let y=0; y<rows; y++){
             const northWest = [y*tileH, x*tileW];
             const southEast = [(y+1)*tileH, (x+1)*tileW];
             const imgBounds = [northWest, southEast];
