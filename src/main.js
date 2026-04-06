@@ -27,10 +27,10 @@ function resetAll() {
 
 function nettoyerCarte() {
     if (window.map instanceof L.Map) {
-        window.map.remove();
-        window.map = null;
+        window.map.eachLayer(layer => window.map.removeLayer(layer));
+        window.map.setView([0,0], 0);
+        mapDiv.style.display = "none";
     }
-    mapDiv.style.display = "none";
 }
 
 /* POKEMONS */
@@ -227,7 +227,11 @@ function import_datas_map() {
     if (btn_import_map.value == "Afficher la map") {
         resetAll();
         mapDiv.style.display = "block";
-        initialiser_map();
+        if (!(window.map instanceof L.Map)) {
+            initialiser_map(); // seulement si pas déjà créé
+        } else {
+            window.map.invalidateSize(); // ajuste la taille si div était caché
+        }
         btn_import_map.value = "Map affichée !";
     }
 }
