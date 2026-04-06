@@ -30,7 +30,6 @@ function resetAll() {
 
 function nettoyerCarte() {
     mapDiv.classList.add('hidden-map');
-    btn_import_map.value = "Afficher la map";
     if (window.map instanceof L.Map) {
         window.map.setView([0, 0], 0);
     }
