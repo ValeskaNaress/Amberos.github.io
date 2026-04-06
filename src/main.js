@@ -284,7 +284,5 @@ function initialiserMap() {
         "Zones dangereuses": monstresGroup
     };
     L.control.layers(null, overlays).addTo(window.map);
-
-    effacerMap();
 }
 
