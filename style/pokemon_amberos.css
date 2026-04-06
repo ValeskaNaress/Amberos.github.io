@@ -271,8 +271,6 @@ body {
 
 #map {
     position: relative;
-    width: 1280px;
-    height: 768px;
 }
 
 .hidden-map {
