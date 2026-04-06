@@ -1,6 +1,6 @@
 const liste = document.querySelector("#liste");
 const liste_petite = document.querySelector("#liste_petite");
-
+const mapDiv = document.getElementById('map');
 
 /* ajouter le bouton concerné */
 const btn_import_pk = document.querySelector("#bouton_import_pokemon");
@@ -11,7 +11,7 @@ const btn_import_map = document.querySelector("#bouton_import_map");
 btn_import_pk.addEventListener("click", import_datas_pokemon);
 btn_import_dr.addEventListener("click", import_datas_dresseur);
 btn_import_ln.addEventListener("click", import_datas_lune);
-btn_import_map.addEventListener("click", chargerMap);
+btn_import_map.addEventListener("click", import_datas_map);
 
 function resetAll() {
     btn_import_dr.value = "Afficher les dresseurs";
@@ -20,8 +20,17 @@ function resetAll() {
     btn_import_map.value = "Afficher la map";
     liste.innerHTML = "";
     liste_petite.innerHTML = "";
+    nettoyerCarte();
     liste.classList = "liste";
     liste_petite.classList = "liste_petite";
+}
+
+function nettoyerCarte() {
+    if (window.map instanceof L.Map) {
+        window.map.remove(); // supprime la map ET les classes Leaflet
+        window.map = null;
+    }
+    mapDiv.style.display = "none";
 }
 
 /* POKEMONS */
@@ -214,25 +223,37 @@ function initialiser_carte_lune(infos) {
 }
 
 /* MAP */
-function chargerMap() {
-    const mapDiv = document.getElementById('map');
-    mapDiv.style.display = 'block';
+function import_datas_map() {
+    if (btn_import_map.value == "Afficher la map") {
+        resetAll();
+        mapDiv.style.display = "block";
+        initialiser_map();
+        btn_import_map.value = "Map affichée !";
+    }
+}
+
+function initialiser_map() {
     const w = 1280, h = 768;
-    const map = L.map('map', { crs: L.CRS.Simple, minZoom: 0, maxZoom: 2 });
+    window.map = L.map(mapDiv, { 
+        crs: L.CRS.Simple, 
+        minZoom: 0, 
+        maxZoom: 2
+    });
     const bounds = [[0,0],[h,w]];
-    map.setMaxBounds(bounds);
-    map.fitBounds(bounds);
     const cols = 5;
     const rows = 3;
     const tileW = w / cols;
     const tileH = h / rows;
+
+    window.map.setMaxBounds(bounds);
+    window.map.fitBounds(bounds);
 
     for(let x=0; x<cols; x++){
         for(let y=0; y<rows; y++){
             const northWest = [y*tileH, x*tileW];
             const southEast = [(y+1)*tileH, (x+1)*tileW];
             const imgBounds = [northWest, southEast];
-            L.imageOverlay(`images/map/0/${x}/${y}.png`, imgBounds).addTo(map);
+            L.imageOverlay(`images/map/0/${x}/${y}.png`, imgBounds).addTo(window.map);
         }
     }
 
@@ -249,7 +270,7 @@ function chargerMap() {
     monstresGroup.addLayer(m1);
 
     // Ajouter certains par défaut
-    villesGroup.addTo(map);
+    villesGroup.addTo(window.map);
 
     // Controls de calques
     var overlays = {
@@ -257,7 +278,7 @@ function chargerMap() {
         "Zones dangereuses": monstresGroup
     };
 
-    L.control.layers(null, overlays).addTo(map);
+    L.control.layers(null, overlays).addTo(window.map);
 }
 
 
