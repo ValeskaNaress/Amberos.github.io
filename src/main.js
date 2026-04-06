@@ -17,6 +17,7 @@ btn_import_ln.addEventListener("click", import_datas_lune);
 btn_import_map.addEventListener("click", import_datas_map);
 
 function resetAll() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     btn_import_dr.value = "Afficher les dresseurs";
     btn_import_pk.value = "Afficher les pokemons";
     btn_import_ln.value = "Afficher les lunes";
