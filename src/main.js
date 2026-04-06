@@ -28,11 +28,10 @@ function resetAll() {
 }
 
 function nettoyerCarte() {
-     if (window.map instanceof L.Map) {
-        window.map.eachLayer(layer => window.map.removeLayer(layer));
+    mapDiv.classList.add('hidden-map');
+    if (window.map instanceof L.Map) {
         window.map.setView([0, 0], 0);
     }
-    mapDiv.style.display = "none";
 }
 
 /* POKEMONS */
