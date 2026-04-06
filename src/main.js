@@ -27,7 +27,7 @@ function resetAll() {
 
 function nettoyerCarte() {
     if (window.map instanceof L.Map) {
-        window.map.remove(); // supprime la map ET les classes Leaflet
+        window.map.remove();
         window.map = null;
     }
     mapDiv.style.display = "none";
