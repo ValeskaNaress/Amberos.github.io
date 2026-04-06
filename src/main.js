@@ -227,11 +227,14 @@ function initialiser_carte_lune(infos) {
 
 /* MAP */
 function import_datas_map() {
-    const isVisible = mapDiv.style.display === "block";
-    mapDiv.style.display = isVisible ? "none" : "block";
-    btn_import_map.value = isVisible ? "Afficher la map" : "Map affichée !";
-    if(!isVisible){
-        window.map.invalidateSize();
+    const isVisible = !mapDiv.classList.contains('hidden-map');
+    if (isVisible) {
+        mapDiv.classList.add('hidden-map');  // cache la map
+        btn_import_map.value = "Afficher la map";
+    } else {
+        mapDiv.classList.remove('hidden-map');  // réaffiche la map
+        btn_import_map.value = "Map affichée !";
+        window.map.invalidateSize(true);        // force Leaflet à recalculer les tuiles
     }
 }
 
