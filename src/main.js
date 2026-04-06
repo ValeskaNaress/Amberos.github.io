@@ -237,7 +237,6 @@ function import_datas_map() {
 function afficherMap() {
     mapDiv.classList.remove('hidden-map');
     window.map.invalidateSize(true);
-    console.log("ok");
 }
 
 function initialiserMap() {
