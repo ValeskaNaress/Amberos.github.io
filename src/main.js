@@ -28,7 +28,8 @@ function resetAll() {
 }
 
 function nettoyerCarte() {
-    effacerMap();
+    mapDiv.classList.add('hidden-map');
+    btn_import_map.value = "Afficher la map";
     if (window.map instanceof L.Map) {
         window.map.setView([0, 0], 0);
     }
@@ -230,11 +231,6 @@ function import_datas_map() {
         afficherMap();
         btn_import_map.value = "Map affichée !";
     }
-}
-
-function effacerMap() {
-    mapDiv.classList.add('hidden-map');
-    btn_import_map.value = "Afficher la map";
 }
 
 function afficherMap() {
