@@ -3,6 +3,7 @@ const liste_petite = document.querySelector("#liste_petite");
 const mapDiv = document.getElementById('map');
 
 initialiserMap();
+mapDiv.classList.add('hidden-map');
 
 /* ajouter le bouton concerné */
 const btn_import_pk = document.querySelector("#bouton_import_pokemon");
@@ -226,7 +227,7 @@ function initialiser_carte_lune(infos) {
 
 /* MAP */
 function import_datas_map() {
-    if (btn_import_ln.value == "Afficher les lunes") {
+    if (btn_import_ln.value == "Afficher la Map") {
         resetAll();
         afficherMap();
         btn_import_map.value = "Map affichée !";
