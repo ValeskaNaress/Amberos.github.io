@@ -225,6 +225,7 @@ function initialiser_carte_lune(infos) {
 
 /* MAP */
 function import_datas_map() {
+    resetAll();
     const isVisible = !mapDiv.classList.contains('hidden-map');
     if (isVisible) {
         mapDiv.classList.add('hidden-map');  // cache la map
