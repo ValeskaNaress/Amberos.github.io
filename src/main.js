@@ -226,11 +226,12 @@ function initialiser_carte_lune(infos) {
 function import_datas_map() {
     if (btn_import_map.value == "Afficher la map") {
         resetAll();
-        mapDiv.style.display = "block";
         if (!(window.map instanceof L.Map)) {
-            initialiser_map(); // seulement si pas déjà créé
+            mapDiv.style.display = 'block'; // afficher avant d'initialiser
+            initialiser_map();
         } else {
-            window.map.invalidateSize(); // ajuste la taille si div était caché
+            mapDiv.style.display = 'block'; // réaffiche le div
+            window.map.invalidateSize();     // recalcul de la taille
         }
         btn_import_map.value = "Map affichée !";
     }
