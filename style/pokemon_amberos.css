@@ -270,8 +270,9 @@ body {
 }
 
 #map { 
-    height: 100vh; 
-    width: 100vw; 
+    position: relative;
+    width: 1280px;
+    height: 768px;
 }
 
 .hidden-map {
