@@ -80,47 +80,47 @@ let lune = [
         "qualites": "- Elegance<br>- Attention aux détails, <br>- Adaptabilité, instinctif<br>- Curiosité<br- Sociabilité",
         "rites" : "- Aucun sacrifice ou abattage pour éviter que les âmes se perdent en chemin et tombent entre les griffes d’Yveltal<br>- Rituels purificateurs pour éloigner le mauvais œil"
     }, {
-        "nom" : "N….M",
+        "nom" : "Noxtem",
         "image": "lune_16.png",
         "qualites": "- N’aime pas attirer l’attention<br>- Sensibilité, intuition, ingénu<br>- Loyauté",
         "rites" : "- Aucun sacrifice ou abattage pour éviter que les âmes se perdent en chemin et tombent entre les griffes d’Yveltal<br>- Rituels purificateurs pour éloigner le mauvais œil"
     }, {
-        "nom" : "O….L",
+        "nom" : "Orbiosol",
         "image": "lune_17.png",
         "qualites": "- Mystérieux, inaccessible<br>- Diplomatie<br>- Charme<br>- Recherche d’harmonie",
         "rites" : ""
     }, {
-        "nom" : "P….K",
+        "nom" : "Pecciak",
         "image": "lune_18.png",
         "qualites": "- Caractère fort, déterminé, caractériel<br>- Honnêteté<br>- Confiance en soi",
         "rites" : ""
     }, {
-        "nom" : "Q….J",
+        "nom" : "Quertioj",
         "image": "lune_19.png",
         "qualites": "- Pouvoir, force d’accomplissement, réussite, ambition, entreprenant, déterminé<br>- Justice",
         "rites" : ""
     }, {
-        "nom" : "R…..I",
+        "nom" : "Ratui",
         "image": "lune_20.png",
         "qualites": "- Sait parfaitement ce qu’il veut, peut se montrer très buté s’il ne parvient pas à l’obtenir<br>- Matérialiste<br>- Fiabilité, persévérance<br>- Sensualité",
         "rites" : ""
     }, {
-        "nom" : "S……H",
+        "nom" : "Sumenah",
         "image": "lune_21.png",
         "qualites": "- Recherche intérieure, intuition, contemplatif, généreux, ouvert d’esprit<br>- Connaissance, aime s’instruire et transmettre<br>- Indépendant, solitaire",
         "rites" : ""
     }, {
-        "nom" : "T……..G",
+        "nom" : "Teutag",
         "image": "lune_22.png",
         "qualites": "- Paradoxal<br>- Indépendance<br>- Vision sociale<br>- Originalité, créativité",
         "rites" : ""
     }, {
-        "nom" : "U……F",
+        "nom" : "Uiridof",
         "image": "lune_23.png",
         "qualites": "- Pouvoir, force d’accomplissement, réussite, ambition, entreprenant, déterminé, leader, charismatique, confiant en ses capacités<br>- Force de caractère, énergie<br>- Perfectionniste, justice, équité",
         "rites" : ""
     }, {
-        "nom" : "V……..E",
+        "nom" : "Vamiré",
         "image": "lune_24.png",
         "qualites": "- Attendrissant<br>- rêveur, sens artistique, créatif, imagination<br>- Empathie",
         "rites" : ""
@@ -130,17 +130,17 @@ let lune = [
         "qualites": "- Expression de soi, libre-penseur, communiquer, parole<br>- Art, imagination, créatif<br>- Spontanéité, confiance en lui<br>- Optimiste, émotif, sensibilité, curieux",
         "rites" : ""
     }, {
-        "nom" : "X……..C",
+        "nom" : "Xmeroc",
         "image": "lune_26.png",
         "qualites": "- Initiative, volonté, curiosité, confiance en soi, courage, indépendance, leader, extraverti, enthousiaste",
         "rites" : ""
     }, {
-        "nom" : "Y…….B",
+        "nom" : "Yollob",
         "image": "lune_27.png",
         "qualites": "- Dialogue, écoute, esprit de coopération, diplomate<br>- Sensibilité, affectueux, chaleureux, intuitif, fidèle<br>- Equilibre<br>- Persévérant",
         "rites" : ""
     }, {
-        "nom" : "Z……A",
+        "nom" : "Zolduria",
         "image": "lune_28.png",
         "qualites": "- Concret, solidité, stabilité, structuré<br>- Rigueur, discipline, organisation, ordonné, méticuleux, fiable, responsable<br>- Patience, persévérance<br>- Capacité d’analyse<br>- Loyal, fidèle",
         "rites" : ""
