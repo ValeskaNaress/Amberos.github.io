@@ -57,7 +57,7 @@ let dresseur = [
     }, {
         "id":4,
         "nom": "Myosotis",
-        "region": "Kalos",
+        "region": "Amberous",
         "epoque" : -2700,
         "role": "",
         "grade": "",
@@ -71,7 +71,7 @@ let dresseur = [
     }, {
         "id":5,
         "nom": "Infirmiere Joelle",
-        "region": "Kalos",
+        "region": "Amberous",
         "epoque" : -2700,
         "role": "",
         "grade": "",
@@ -85,7 +85,7 @@ let dresseur = [
     }, {
         "id":6,
         "nom": "Gwendy",
-        "region": "Kalos",
+        "region": "Amberous",
         "epoque" : -2700,
         "role": "",
         "grade": "",
@@ -99,7 +99,7 @@ let dresseur = [
     }, {
         "id":7,
         "nom": "Cyane",
-        "region": "Kalos",
+        "region": "Amberous",
         "epoque" : -2700,
         "role": "",
         "grade": "",
@@ -113,7 +113,7 @@ let dresseur = [
     }, {
         "id":8,
         "nom": "Dracéna",
-        "region": "Kalos",
+        "region": "Amberous",
         "epoque" : -2700,
         "role": "",
         "grade": "",
@@ -127,7 +127,7 @@ let dresseur = [
     }, {
         "id":9,
         "nom": "Alain",
-        "region": "Kalos",
+        "region": "Amberous",
         "epoque" : -2700,
         "role": "",
         "grade": "",
