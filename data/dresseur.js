@@ -54,5 +54,5 @@ let dresseur = [
         "epithetes" : "",
         "descendant": "Séréna",
         "infos_sup": "",
-    }, 
+    },
 ]
