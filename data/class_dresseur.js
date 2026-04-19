@@ -46,7 +46,6 @@ class Dresseur {
 	initialiserImage() {
 		var nom_image = String(this.nom);
         if (this.epoque != 0) nom_image += "_" + this.epoque;
-		nom_image += ".png";
 		return nom_image;
 	}
 
