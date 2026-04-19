@@ -25,10 +25,18 @@ body {
     margin: 1%;
 }
 
-.button_import {
-    background-color: #202020;;
+.button_import,
+.select_import {
+    background-color: #202020;
     color: #EEEEEE;
-    border-color:#202020;;
+    border-color:#202020;
+    border-radius: 5px;
+}
+
+.button_image {
+    background-color: #191632;;
+    color: #EEEEEE;
+    border-color: #191632;
     border-radius: 5px;
 }
 
@@ -163,6 +171,13 @@ body {
     border-radius: 5px;
 }
 
+.zone_border {
+    margin: 1%;
+    padding:1%;
+    border-radius: 5px;
+    border-style: solid;
+}
+
 .zone_dresseur {
     margin: 3px;
     padding: 2px;
@@ -226,10 +241,17 @@ body {
     justify-content: space-between;
 }
 
+.carte_justify_space {
+    justify-content: space-around;
+}
+
 .carte_justify_right {
     justify-content: right;
 }
 
+.width_50 {
+    width: 50em;
+}
 
 .self_center {
     display:flex;
@@ -250,10 +272,31 @@ body {
 
 #dresseur_img {
     grid-row: 1 / 3;
+    grid-column: 1;
+}
+
+#dresseur_entete {
+    grid-row: 1;
+    grid-column: 2;
+}
+
+#dresseur_description {
+    grid-row: 2;
+    grid-column: 2;
 }
 
 #dresseur_bonus {
     grid-column: 1 / 3;
+    grid-row:3;
+}
+
+.image_switch {
+    display:flex;
+    grid-row: 2;
+    grid-column: 1;
+    align-self: end;
+    justify-content: space-around;
+    padding-bottom: 10px;
 }
 
 #lune_entete {
@@ -270,16 +313,7 @@ body {
 }
 
 #map { 
-    /*position: relative;
-    width: 1280px;
-    height: 768px;*/
-    height: 100vh;
-    width: 100vw;
+    height: 100vh; 
+    width: 100vw; 
     display: block;
-}
-
-.hidden-map {
-    visibility: hidden;   /* ou opacity: 0 */
-    height: 0;            /* pour ne pas prendre de place */
-    overflow: hidden;
 }
