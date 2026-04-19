@@ -21,7 +21,7 @@ function initialiser_carte_dresseur(infos) {
     var str = "";
     str += "<div id='carte_type' class='Dresseur carte_dresseur_grid zone zone_large'>";
         str += "<div id='dresseur_img' class='zone_dresseur Blanc carte_center self_center carte_column'>";
-            str += "<img id='img" + infos.titre + "' class='img_dresseur' src='images/dresseurs/" + infos.image + "_1.png'>"; 
+            str += "<img id='img_" + infos.titre + "' class='img_dresseur' src='images/dresseurs/" + infos.image + "_1.png'>"; 
         str += "</div>";
         
         str += "<div class='class_row image_switch'>";
@@ -76,7 +76,7 @@ function initialiser_carte_dresseur(infos) {
 }
 
 function switch_image (sens, titre, image) {
-    nb = parseInt(document.getElementById('img' + titre).src.slice(-5,-4));
+    nb = parseInt(document.getElementById('img_' + titre).src.slice(-5,-4));
     console.log(nb);
     if (sens =='next') {
         nb += 1;
@@ -87,7 +87,7 @@ function switch_image (sens, titre, image) {
 
     let ok = tryLoadImage(url, (exists) => {
         if (exists) {
-            document.getElementById('img' + titre).src = url;
+            document.getElementById('img_' + titre).src = url;
         }
     });
 }
