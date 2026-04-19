@@ -12,21 +12,21 @@ function preparer_carte_dresseur(val) {
     var str = "";
     var infos = Dresseur.all_dresseurs[val].getAttributes();
     str += initialiser_carte_dresseur(infos);
-    liste.innerHTML += str;
+    liste.insertAdjacentHTML('beforeend', str);
+    document.getElementById("button_prev_" + infos.titre).addEventListener('click', () => switch_image('previous', infos.titre, infos.image));
+    document.getElementById("button_next_" + infos.titre).addEventListener('click', () => switch_image('next', infos.titre, infos.image));
 }
 
 function initialiser_carte_dresseur(infos) {
     var str = "";
     str += "<div id='carte_type' class='Dresseur carte_dresseur_grid zone zone_large'>";
         str += "<div id='dresseur_img' class='zone_dresseur Blanc carte_center self_center carte_column'>";
-            str += "<img class='img_dresseur' src='images/dresseurs/" + infos.image + "'>"; 
+            str += "<img id='img" + infos.titre + "' class='img_dresseur' src='images/dresseurs/" + infos.image + "_1.png'>"; 
         str += "</div>";
         
         str += "<div class='class_row image_switch'>";
-            str += "<input type='button' id='button_<_" + infos.titre + "' name='<' value='<' class='button_image'>";
-            //document.getElementById("button_<_" + infos.titre).addEventListener("click", switch_image('previous', infos.titre));
-            str += "<input type='button' id='button_>_" + infos.titre + "' name='>' value='>' class='button_image'>";
-            //document.getElementById("button_>_" + infos.titre).addEventListener("click", switch_image('next', infos.titre));
+            str += "<input type='button' id='button_prev_" + infos.titre + "' name='prev' value='<' class='button_image'>";
+            str += "<input type='button' id='button_next_" + infos.titre + "' name='next' value='>' class='button_image'>";
         str += "</div>";
 
         str += "<div id='dresseur_entete' class='zone_dresseur carte_left'>";
@@ -73,4 +73,28 @@ function initialiser_carte_dresseur(infos) {
         str += "</div>";
     str += "</div>";
     return str;
+}
+
+function switch_image (sens, titre, image) {
+    nb = parseInt(document.getElementById('img' + titre).src.slice(-5,-4));
+    console.log(nb);
+    if (sens =='next') {
+        nb += 1;
+    } else if (sens == 'previous') {
+        nb -= 1;
+    }
+    let url = "images/dresseurs/" + image + "_" + nb + ".png";
+
+    let ok = tryLoadImage(url, (exists) => {
+        if (exists) {
+            document.getElementById('img' + titre).src = url;
+        }
+    });
+}
+
+function tryLoadImage(url, callback) {
+  const testImg = new Image();
+  testImg.onload = () => callback(true);
+  testImg.onerror = () => callback(false);
+  testImg.src = url;
 }
